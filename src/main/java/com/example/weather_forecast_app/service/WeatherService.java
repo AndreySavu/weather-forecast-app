@@ -18,20 +18,20 @@ public class WeatherService {
 
     public WeatherForecast getForecast(int days) {
         List<Double> temperatures = weatherClient.getTemperatures(days);
-        List<WarningType> warnings = new ArrayList<>();
+        List<String> warnings = new ArrayList<>();
 
         double averageTemperature = temperatures.stream().mapToDouble(Double::doubleValue).average().orElse(0);
 
         if (averageTemperature < 5) {
-            warnings.add(WarningType.FROST);
+            warnings.add(WarningType.FROST.getDescription());
         }
 
         if (temperatures.stream().anyMatch(temp -> temp < -30)) {
-            warnings.add(WarningType.COLD);
+            warnings.add(WarningType.COLD.getDescription());
         }
 
         if (temperatures.stream().anyMatch(temp -> temp > 35)) {
-            warnings.add(WarningType.HEAT);
+            warnings.add(WarningType.HEAT.getDescription());
         }
 
         return new WeatherForecast(temperatures, warnings);
