@@ -7,11 +7,11 @@ Java-микросервис, который получает прогноз по
 ```bash
 ./mvnw clean package
 ```
-3. Собираем докер-образ
+2. Собираем докер-образ
 ```bash
 docker build -t weather-forecast-app .
 ```
-4. Запускаем контейнер
+3. Запускаем контейнер
 ```bash
 docker run -p 8080:8080 weather-forecast-app
 ```
