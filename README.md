@@ -3,15 +3,11 @@ Java-микросервис, который получает прогноз по
 
 Инструкция по сборке и развертыванию:
 
-1. Собираем проект
+1. Собираем докер-образ
 ```bash
-./mvnw clean package
+docker build -t weather-forecast-app .   
 ```
-2. Собираем докер-образ
-```bash
-docker build -t weather-forecast-app .
-```
-3. Запускаем контейнер
+2. Запускаем контейнер
 ```bash
 docker run -p 8080:8080 weather-forecast-app
 ```
